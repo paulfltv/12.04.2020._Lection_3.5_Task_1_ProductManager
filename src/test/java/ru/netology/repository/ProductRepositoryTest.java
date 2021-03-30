@@ -1,5 +1,6 @@
 package ru.netology.repository;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
@@ -32,7 +33,7 @@ class ProductRepositoryTest {
 	}
 
 	@Test
-	public void shouldRemoveIfExists() {
+	public void shouldRemoveIfExist() {
 		int idToRemove = 1;
 		Product first = new Book(1, "coreJava", 1000, "Author");
 		Product second = new Smartphone (2, "xCover4S", 2000, "Samsung");
@@ -47,8 +48,9 @@ class ProductRepositoryTest {
 		assertArrayEquals(expected, actual);
 	}
 
+	@Disabled
 	@Test
-	public void shouldRemoveIfExists() {
+	public void shouldNotRemoveIfNotExist() {
 		int idToRemove = 3;
 		Product first = new Book(1, "coreJava", 1000, "Author");
 		Product second = new Smartphone (2, "xCover4S", 2000, "Samsung");
@@ -61,9 +63,5 @@ class ProductRepositoryTest {
 		Product[] actual = repository.getAll();
 
 		assertArrayEquals(expected, actual);
-	}
-
-	@Test
-	void findAll() {
 	}
 }
